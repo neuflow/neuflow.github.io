@@ -1,15 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Neuflow</title>
-  </head>
-  <body>
-    <main>
-        <h1>The friendly alter of StackOverflow.</h1>  
-        <p>Discuss with the community thriving without the idiocracy of manual moderation.</p>
-    </main>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+  @font-face {font-family: SometypeMono; src: url("SometypeMono.ttf");}
+  body {
+    background-image: url("https://cdn.discordapp.com/attachments/971086584436904007/1070087582169440326/image.png");
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-size: cover;
+  }
+  .logo {
+  width: 10%;
+  height: 10%;
+  max-width: 40px;
+  }
+  .title {
+    text-align: left;
+    color:rgb(230, 230, 250);
+    font-size:40px;
+    position:absolute;left:0%;top:100%;
+    text-shadow: 0px 5px 10px black;
+  }
+  .desc {
+    text-align: left;
+    color:rgb(230, 230, 250);
+    font-size:20px;
+    inline-size:70%;
+    position:absolute;top:100%;
+    text-shadow: 0px 5px 10px black;
+  }
+  .centre {
+    position:absolute;top:40%;left:10%;width:100%;
+  }
+
+  
+.button-64 {
+  align-items: center;
+  background-image: linear-gradient(144deg,#6f428f, #2b1c81 50%,#1370db);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgb(0, 0, 0) 0 5px 30px 0;
+  box-sizing: border-box;
+  color: rgb(68, 68, 112);
+  display: flex;
+  font-family: SometypeMono;
+  font-size: 16px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 100%;
+  padding: 1px;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 16px;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 1000px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 300px;
+  }
+}
+
+  @keyframes star {
+    0% {top:0%;}
+    50% {top:2%;}
+    100% {top:0%;}
+  }
+
+</style>
+
+<body>
+  <section>
+    <nav>
+      <div class="centre">
+        <div class=logo">
+          <img src="https://cdn.discordapp.com/attachments/971086584436904007/1070043780532682772/Untitled1.png" width="250" alt="Neuflow">
+        </div>
+        <div class="title">
+          <font face="Helvetica"><b>Programming support, by the community, for the community</b></font>
+          <div class="desc">
+            <font face="Helvetica">Join and question upon or ponder around Neuflow today.</font>
+          </div>
+          
+        </div>
+        <form action="snors">
+          <button class="button-64" role="button"><span class="text">enter a new or preexisting username and move onward</span></button>
+        </form>
+      </div>
+    </nav>
+  </section>
+</body>
 </html>
