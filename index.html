@@ -9,30 +9,38 @@
 
   @font-face {font-family: SometypeMono; src: url("SometypeMono.ttf");}
   body {
-    background-image: url("https://cdn.discordapp.com/attachments/971086584436904007/1070087582169440326/image.png");
+    background-image: url("bg.png");
     background-repeat: no-repeat;
     background-attachment:fixed;
     background-size: cover;
   }
+
   .logo {
   width: 10%;
   height: 10%;
   max-width: 40px;
   }
+  .text {
+    text-align: left;
+    width:100%;
+    color:rgb(194, 194, 199);
+    text-shadow: 0px 3px 4px black;
+    font-family: SometypeMono;
+  }
   .title {
     text-align: left;
-    color:rgb(230, 230, 250);
+    color:rgb(194, 194, 199);
     font-size:40px;
     position:absolute;left:0%;top:100%;
-    text-shadow: 0px 5px 10px black;
+    text-shadow: 0px 3px 4px black;
   }
   .desc {
     text-align: left;
-    color:rgb(230, 230, 250);
+    color:rgb(194, 194, 199);
     font-size:20px;
     inline-size:70%;
     position:absolute;top:100%;
-    text-shadow: 0px 5px 10px black;
+    text-shadow: 0px 3px 4px black;
   }
   .centre {
     position:absolute;top:40%;left:10%;width:80%;
@@ -42,47 +50,81 @@
     color: rgb(68, 68, 112);
   }
 .button-64 {
+  position:absolute;
   align-items:stretch;
-  box-shadow: rgb(0, 0, 0) 0 5px 30px 0;
   box-sizing: border-box;
-  color: rgb(127, 127, 185);
+  color: rgb(61, 61, 82);
   display: inline-flex;
   font-family: SometypeMono;
   font-size: 20px;
   justify-content: center;
   line-height: 1em;
-  max-width: 100%;
-  min-width: 100%;
-  top:100%;
-  padding: 5px;
+  left:0;right:0;top:0;bottom:0;
+  margin:auto;
+  height: 90%;
+  width: 99.4%;
+  padding: 10px;
   text-decoration: none;
   user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
   background: rgb(5, 6, 45);
-  border-width: 2pt;
-  border: 2px solid rgb(27, 28, 87);
-  border-image-slice: 1;
-  border-radius: 7px;
+  border-width: 0pt;
+  border-radius: 6px;
+  transition-property: background;
+  transition-duration: 1;
+  transition-timing-function: linear;
 }
 .button-64:focus {
   outline: 0;
-  border: 2px solid rgb(13, 13, 58);
+  background: rgb(3, 4, 36);
 }
 .button-64:hover:not(:focus) {
-  animation: fade1 0.1s ;
-  animation-duration: 100ms;
+  background: rgb(15, 16, 73);
 }
 
 .button-64:hover span {
   background: rgb(5, 6, 45);
 }
 
-@media (min-width: 1000px) {
+.bound {
+  position: relative;
+  background: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  box-shadow: rgb(0, 0, 0) 0 5px 20px 0;
+  border-radius: 7px;
+  top:30px;left:0%;width:100%;
+  height: 40px;
+}
+
+.contain {
+  position:absolute;
+}
+
+.signupbutton {
+  color: rgb(5, 6, 45);
+  font-family: SometypeMono;
+  font-size: 18px;
+  z-index: 1;
+  position:relative;
+  height: 100%;
+  width: 120px;
+  float:right;
+  padding: 10px;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  background: linear-gradient(100deg,#00DDEB,#1959cf 80%);
+  border-width: 0pt;
+  border-radius: 6px;
+}
+
+@media (min-width: 1px) {
   .button-64 {
-    font-size: 24px;
-    min-width: 100%;
+    font-size: 20px;
+    min-width: 90%;
   }
 }
 
@@ -92,29 +134,43 @@
     100% {top:0%;}
   }
 
-  @keyframes fade1 {
-    0% {border: 2px solid rgb(13, 13, 58);}
-    100% {border: 2px solid rgb(39, 37, 105);}
-  }
-
 </style>
 
 <body>
-  <section>
-    <nav>
-      <div class="centre">
-        <div class=logo">
-          <img src="https://cdn.discordapp.com/attachments/971086584436904007/1070043780532682772/Untitled1.png" width="250" alt="Neuflow">
-        </div>
-        <div class="title">
-          <font face="Helvetica"><b>Programming support, by the community, for the community</b></font>
-          <div class="desc">
-            <font face="Helvetica">Join and question upon or ponder around Neuflow today.</font>
-          </div>
-        </div>
-        <input type="text" placeholder="enter a new or preexisting username and move onward" class="button-64"> 
+    <div class="centre">
+      <div class=logo">
+        <img src="https://cdn.discordapp.com/attachments/971086584436904007/1070043780532682772/Untitled1.png" width="250" alt="Neuflow">
       </div>
-    </nav>
-  </section>
+      <div>
+        <font face="Helvetica" class="text" style="font-size:40px;"><b>programming support, by the community, for the community</b></font>
+        <br>
+        <font face="Helvetica" class="text" style="font-size:20px;inline-size:70%;">Join and question upon or ponder around Neuflow today.</font>
+        <br>
+        <div class="bound">
+          <input type="text" placeholder="enter your gmail here" class="button-64" id="inputtext" onchange="emailchange()"> 
+          <button id="signup" class="signupbutton"><b>sign up</b></button>
+          <script>
+            var emailchange = function() {
+              var scan = function(inputString) {
+                var pattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      
+                return inputString.match(pattern); 
+              }
+              var strings = scan(document.getElementById("inputtext").value);
+
+              if(strings && strings.length)
+              {
+                alert("Detected");
+              }
+              else{
+                alert('No match');
+              }
+            }
+          </script>
+        </div>
+        <br>
+        <font face="Helvetica" class="text" style="font-size:25px;position:relative;top:30px;text-align:center;"><b>what is neuflow?</b></font>
+        </div>
+      </div>
 </body>
 </html>
