@@ -28,7 +28,7 @@ a:hover{
 .form-control{
   border-radius: 7px;
   text-align: center;
-    background-color: #f8f9fa;
+  background-color: #322b57;
   padding: 20px;
   padding: 25px 20px;
   margin-bottom: 1.3rem;
@@ -36,7 +36,7 @@ a:hover{
 
 .form-control:focus {
     color: #000000;
-    background-color: #ffffff;
+    background-color: #813ce8;
     border: 3px solid #4625e9;
     outline: 0;
     box-shadow: none;
@@ -49,10 +49,7 @@ a:hover{
   border: 2px solid #000000;
 }
 .btn-primary:hover {
-
-    
-    background-color: #7b17d9;
-    border-color: #7b17d9;
+  background-color: #7b17d9;
+  border-color: #7b17d9;
   transition: .3s;
-
 }
