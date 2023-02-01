@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+@font-face {font-family: SometypeMono; src: url("SometypeMono.ttf");}
+
+.container {
+    text-align: center;
+    }
+
+body{
+  background-image: url("https://cdn.discordapp.com/attachments/971086584436904007/1070087582169440326/image.png");
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-size: cover;
+}
+h2{
+  padding-top: 1.5rem;
+}
+a{
+  color: #333;
+}
+a:hover{
+  color: #4625e9;
+  text-decoration: none;
+}
+.card{
+  border: rem solid #f8f9fa;
+  top: 10%;
+}
+.form-control{
+  border-radius: 7px;
+  text-align: center;
+    background-color: #f8f9fa;
+  padding: 20px;
+  padding: 25px 20px;
+  margin-bottom: 1.3rem;
+}
+
+.form-control:focus {
+    color: #000000;
+    background-color: #ffffff;
+    border: 3px solid #4625e9;
+    outline: 0;
+    box-shadow: none;
+}
+
+.btn{
+  border-radius: 7px;
+  padding: 0.6rem 1.2rem;
+  background: #4625e9;
+  border: 2px solid #000000;
+}
+.btn-primary:hover {
+
+    
+    background-color: #7b17d9;
+    border-color: #7b17d9;
+  transition: .3s;
+
+}
