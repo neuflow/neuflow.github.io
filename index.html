@@ -3,16 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
 
+  html {
+    scroll-behavior: smooth;
+  }
   @font-face {font-family: SometypeMono; src: url("SometypeMono.ttf");}
   body {
+    overflow-x: hidden;
+    background: rgb(10, 3, 27);
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+    animation-name:phase;
+    animation-duration:4s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+    animation-timing-function: ease-in-out;
+  }
+
+  .fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left:0%;
+    top:0%;
     background-image: url("bg.png");
     background-repeat: no-repeat;
-    background-attachment:fixed;
-    background-size: cover;
+    background-attachment:none;
+    background-size:cover;
+    z-index: 0;
+
+  }
+
+  .stars {
+    object-fit:cover;
+    overflow:hidden;
+    left: 10%;
+    top: -500px;
+    height:100%;
+    width:100%;
+    animation: star;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+    animation-timing-function: ease-in-out;
+
+  }
+  .star {
+    position:absolute;
+    width: 130%;
+    height:100%;
+    animation: movestars;
+    animation-duration: 10s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+    animation-timing-function: ease-in-out;
   }
 
   .logo {
@@ -47,22 +95,21 @@
   }
 
   ::placeholder {
-    color: rgb(68, 68, 112);
+    color: rgb(79, 79, 139);
   }
 .button-64 {
-  position:absolute;
-  align-items:stretch;
+  position:relative;
+  width:99.6%;bottom:11px;
+  height: 40px;
+  display: flex;
+  align-items:center;
   box-sizing: border-box;
-  color: rgb(61, 61, 82);
-  display: inline-flex;
+  color: rgb(113, 113, 167);
   font-family: SometypeMono;
   font-size: 20px;
   justify-content: center;
   line-height: 1em;
-  left:0;right:0;top:0;bottom:0;
-  margin:auto;
-  height: 90%;
-  width: 99.4%;
+  margin: auto;
   padding: 10px;
   text-decoration: none;
   user-select: none;
@@ -94,7 +141,25 @@
   box-shadow: rgb(0, 0, 0) 0 5px 20px 0;
   border-radius: 7px;
   top:30px;left:0%;width:100%;
-  height: 40px;
+  height: 42px;
+}
+
+.fade {
+  z-index: 2;
+  position: absolute;
+  bottom:100%;left:-0.01%;
+  width: 100%;
+  height: 20%;
+  background-image: linear-gradient(0deg,rgb(10, 3, 27),rgba(200, 200, 200, 0) 100%);
+}
+
+.info {
+  z-index: 2;
+  position: absolute;
+  top:100%;left:-0.01%;
+  width: 100%;
+  height: 100%;
+  background: rgb(10, 3, 27);
 }
 
 .contain {
@@ -107,6 +172,7 @@
   font-size: 18px;
   z-index: 1;
   position:relative;
+  bottom:52px;
   height: 100%;
   width: 120px;
   float:right;
@@ -128,48 +194,68 @@
   }
 }
 
+  @keyframes phase {
+    0% {background: rgb(10, 3, 27);}
+    100% {background: rgb(11, 9, 36);}
+  }
+
   @keyframes star {
-    0% {top:0%;}
-    50% {top:2%;}
-    100% {top:0%;}
+    0% {filter: brightness(100%) contrast(100%)}
+    100% {filter: brightness(200%) contrast(105%)}
+  }
+
+  @keyframes movestars {
+    0% {right:0%}
+    100% {right:10%}
   }
 
 </style>
 
 <body>
-    <div class="centre">
+  <div class="info" id="infobox">
+    <div class="fade"></div>
+  </div>
+    <div class="star">
+      <img src="stars.png" alt="" class="stars">
+    </div>
+    <div class="fill"></div>
+    <div class="centre" id="centre">
       <div class=logo">
-        <img src="https://cdn.discordapp.com/attachments/971086584436904007/1070043780532682772/Untitled1.png" width="250" alt="Neuflow">
+        <img src="logo.png" width="250" alt="Neuflow">
       </div>
       <div>
-        <font face="Helvetica" class="text" style="font-size:40px;"><b>programming support, by the community, for the community</b></font>
+        <font face="Helvetica" class="text" style="font-size:43px;"><b>programming support, by the community, for the community</b></font>
         <br>
         <font face="Helvetica" class="text" style="font-size:20px;inline-size:70%;">Join and question upon or ponder around Neuflow today.</font>
         <br>
         <div class="bound">
-          <input type="text" placeholder="enter your gmail here" class="button-64" id="inputtext" onchange="emailchange()"> 
-          <button id="signup" class="signupbutton"><b>sign up</b></button>
-          <script>
-            var emailchange = function() {
-              var scan = function(inputString) {
-                var pattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      
-                return inputString.match(pattern); 
-              }
-              var strings = scan(document.getElementById("inputtext").value);
-
-              if(strings && strings.length)
-              {
-                alert("Detected");
-              }
-              else{
-                alert('No match');
-              }
-            }
-          </script>
         </div>
+        <input type="text" placeholder="enter gmail here..." class="button-64" id="inputtext" onchange="emailchange()">
+        <button id="signup" class="signupbutton"><b>sign up</b></button>
+        <script>
+          var emailchange = function() {
+            var scan = function(inputString) {
+              var pattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    
+              return inputString.match(pattern); 
+            }
+            var strings = scan(document.getElementById("inputtext").value);
+
+            if(strings && strings.length)
+            {
+            }
+            else{
+            }
+          }
+          let infobox = document.getElementById('infobox');
+          let centre = document.getElementById('centre');
+          window.addEventListener('scroll', () => {
+              let value = window.scrollY
+              infobox.style.top = -value/10 + 100 + '%';
+              centre.style.top = value/15 + 40 + '%';
+          });
+        </script>
         <br>
-        <font face="Helvetica" class="text" style="font-size:25px;position:relative;top:30px;text-align:center;"><b>what is neuflow?</b></font>
         </div>
       </div>
 </body>
