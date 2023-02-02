@@ -33,6 +33,7 @@ a:hover{
   top: 10%;
 }
 .form-control{
+  font-family: SometypeMono;
   border-radius: 7px;
   text-align: center;
   background-color: #322b57;
