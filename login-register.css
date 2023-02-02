@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 @font-face {font-family: SometypeMono; src: url("SometypeMono.ttf");}
 
+html {
+  height: 100%;
+}
+
 .container {
-    text-align: center;
-    }
+  margin: auto;
+  height: auto;
+  width: auto;  
+  text-align: center;
+ }
 
 body{
-  background-image: url("https://cdn.discordapp.com/attachments/971086584436904007/1070087582169440326/image.png");
+  background-image: url("bg.png");
   background-repeat: no-repeat;
   background-attachment:fixed;
   background-size: cover;
@@ -15,7 +22,7 @@ h2{
   padding-top: 1.5rem;
 }
 a{
-  color: #333;
+  color: rgb(255, 255, 255);
 }
 a:hover{
   color: #4625e9;

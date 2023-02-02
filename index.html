@@ -167,6 +167,7 @@
 }
 
 .signupbutton {
+  visibility:collapse;
   color: rgb(5, 6, 45);
   font-family: SometypeMono;
   font-size: 18px;
@@ -233,20 +234,26 @@
         <input type="text" placeholder="enter gmail here..." class="button-64" id="inputtext" onchange="emailchange()">
         <button id="signup" class="signupbutton"><b>sign up</b></button>
         <script>
-          var emailchange = function() {
-            var scan = function(inputString) {
-              var pattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    
-              return inputString.match(pattern); 
-            }
-            var strings = scan(document.getElementById("inputtext").value);
+            let signup = document.getElementById("signup")
+            var emailchange = function() {
+              var scan = function(inputString) {
+                var pattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      
+                return inputString.match(pattern); 
+              }
+              var strings = scan(document.getElementById("inputtext").value);
 
-            if(strings && strings.length)
-            {
+              if(strings && strings.length)
+              {
+                signup.style.visibility = "visible";
+              }
+              else{
+               signup.style.visibility = "collapse";
+              }
             }
-            else{
-            }
-          }
+            signup.addEventListener('click', function() {
+              window.location.assign("login-register.html");
+            });
           let infobox = document.getElementById('infobox');
           let centre = document.getElementById('centre');
           window.addEventListener('scroll', () => {
