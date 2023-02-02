@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 @font-face {font-family: SometypeMono; src: url("SometypeMono.ttf");}
 
+html {
+  height: 100%;
+}
+
 .container {
   margin: auto;
   height: auto;
