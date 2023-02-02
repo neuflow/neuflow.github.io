@@ -2,10 +2,11 @@
 @font-face {font-family: SometypeMono; src: url("SometypeMono.ttf");}
 
 .container {
+  margin: auto;
   height: auto;
   width: auto;  
   text-align: center;
-    }
+ }
 
 body{
   background-image: url("bg.png");
