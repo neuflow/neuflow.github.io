@@ -6,7 +6,7 @@
     }
 
 body{
-  background-image: url("https://cdn.discordapp.com/attachments/971086584436904007/1070087582169440326/image.png");
+  background-image: url("bg.png");
   background-repeat: no-repeat;
   background-attachment:fixed;
   background-size: cover;
@@ -26,6 +26,7 @@ a:hover{
   top: 10%;
 }
 .form-control{
+  font-family: SometypeMono;
   border-radius: 7px;
   text-align: center;
   background-color: #322b57;
