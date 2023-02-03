@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Welcome to Neuflow</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,10 +40,11 @@
   }
 
   .stars {
+    position:absolute;
     object-fit:cover;
     overflow:hidden;
     left: 10%;
-    top: -500px;
+    top: -700px;
     height:100%;
     width:100%;
     animation: star;
@@ -166,8 +168,28 @@
   position:absolute;
 }
 
+.guestbutton {
+  color: rgb(89, 90, 139);
+  font-family: SometypeMono;
+  font-size: 16px;
+  z-index: 1;
+  position:relative;
+  height: 30px;
+  width: 160px;
+  float:left;
+  padding: 0px;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  background: rgba(0,0,0,0);
+  border-width: 0pt;
+  border-radius: 6px;
+}
+
 .signupbutton {
-  visibility:collapse;
+  
   color: rgb(5, 6, 45);
   font-family: SometypeMono;
   font-size: 18px;
@@ -186,6 +208,23 @@
   background: linear-gradient(100deg,#00DDEB,#1959cf 80%);
   border-width: 0pt;
   border-radius: 6px;
+}
+
+.topbar {
+background-image:linear-gradient(rgb(2, 0, 8) 20%,rgba(0,0,0,0));
+z-index: 3;
+position:fixed;
+left:-0.01%;
+width: 110%;
+height: 100px;
+top:0;
+}
+
+.topbarlogo {
+  position: absolute;
+  width:auto;
+  height: 50%;
+  top:25%;left:9%;
 }
 
 @media (min-width: 1px) {
@@ -211,8 +250,10 @@
   }
 
 </style>
-
 <body>
+  <div class="topbar">
+<img class="topbarlogo" src="logo.png" alt="">
+  </div>
   <div class="info" id="infobox">
     <div class="fade"></div>
   </div>
@@ -231,8 +272,9 @@
         <br>
         <div class="bound">
         </div>
-        <input type="text" placeholder="enter gmail here..." class="button-64" id="inputtext" onchange="emailchange()">
-        <button id="signup" class="signupbutton"><b>sign up</b></button>
+        <input type="text" placeholder="enter your email here..." class="button-64" id="inputtext" onchange="emailchange()">
+        <button id="signup" class="guestbutton"><u>explore as guest</u></button>
+        <button id="signup" class="signupbutton" style="visibility:collapse;"><b>sign up</b></button>
         <script>
             let signup = document.getElementById("signup")
             var emailchange = function() {
