@@ -24,7 +24,7 @@ DAT.Globe = function(container, colorFn) {
 
   function modelLoader() {
     loader = new THREE.JSONLoader();
-    loader.load({ model:"cube.js", callback: function(g) {
+    loader.load({ model:"models/cube.js", callback: function(g) {
       pointGeo = g;
       gridLoader()
     }});
