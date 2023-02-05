@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+  <base href="/">
 </head>
 <style>
 
@@ -12,6 +14,9 @@
     scroll-behavior: smooth;
   }
   @font-face {font-family: SometypeMono; src: url("SometypeMono.ttf");}
+  @font-face {font-family: HelveticaLight; src: url("HelveticaLight.ttf");}
+  @font-face {font-family: HelveticaBold; src: url("HelveticaBold.ttf");}
+   @font-face {font-family: HelveticaNormal; src: url("Helvetica.ttf");}
   body {
     overflow-x: hidden;
     background: rgb(10, 3, 27);
@@ -23,20 +28,6 @@
     animation-iteration-count:infinite;
     animation-direction:alternate;
     animation-timing-function: ease-in-out;
-  }
-
-  .fill {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left:0%;
-    top:0%;
-    background-image: url("bg.png");
-    background-repeat: no-repeat;
-    background-attachment:none;
-    background-size:cover;
-    z-index: 0;
-
   }
 
   .stars {
@@ -227,6 +218,27 @@ top:0;
   top:25%;left:9%;
 }
 
+.blurlet {
+  position:absolute;
+  width: 10%;
+  height: 100px;
+  background: #0026ff;
+  filter:blur(100px);
+  top:30%;
+  animation: moveblurs;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.container {
+        z-index: 10;
+        position: absolute;
+        top:10%;
+        left: -110%;
+        width: 400%;
+        height: 400%;
+}
 @media (min-width: 1px) {
   .button-64 {
     font-size: 20px;
@@ -249,63 +261,84 @@ top:0;
     100% {right:10%}
   }
 
+  @keyframes moveblurs {
+    0% {filter: blur(100px)}
+    50% {filter: blur(150px)}
+    100% {filter: blur(100px)}
+  }
+
 </style>
 <body>
-  <div class="topbar">
+  
+  <div id="container" class="container"></div>
+<div class="blurlet"></div>
+<div class="topbar">
 <img class="topbarlogo" src="logo.png" alt="">
+</div>
+<div class="info" id="infobox">
+  <div class="fade"></div>
+</div>
+  <div class="star">
+    <img src="stars.png" alt="" class="stars">
   </div>
-  <div class="info" id="infobox">
-    <div class="fade"></div>
-  </div>
-    <div class="star">
-      <img src="stars.png" alt="" class="stars">
+  <div class="centre" id="centre">
+    <div class=logo">
+      <img src="logo.png" width="250" alt="Neuflow">
     </div>
-    <div class="fill"></div>
-    <div class="centre" id="centre">
-      <div class=logo">
-        <img src="logo.png" width="250" alt="Neuflow">
+    <div>
+      <font face="Helvetica" class="text" style="font-size:43px;"><b>by programmers, for programmers</b></font>
+      <br>
+      <font face="Helvetica" class="text" style="font-size:20px;inline-size:70%;">Join and question upon or ponder around Neuflow today.</font>
+      <br>
+      <div class="bound">
       </div>
-      <div>
-        <font face="Helvetica" class="text" style="font-size:43px;"><b>programming support, by the community, for the community</b></font>
-        <br>
-        <font face="Helvetica" class="text" style="font-size:20px;inline-size:70%;">Join and question upon or ponder around Neuflow today.</font>
-        <br>
-        <div class="bound">
-        </div>
-        <input type="text" placeholder="enter your email here..." class="button-64" id="inputtext" onchange="emailchange()">
-        <button id="signup" class="guestbutton"><u>explore as guest</u></button>
-        <button id="signup" class="signupbutton" style="visibility:collapse;"><b>sign up</b></button>
-        <script>
-            let signup = document.getElementById("signup")
-            var emailchange = function() {
-              var scan = function(inputString) {
-                var pattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      
-                return inputString.match(pattern); 
-              }
-              var strings = scan(document.getElementById("inputtext").value);
-
-              if(strings && strings.length)
-              {
-                signup.style.visibility = "visible";
-              }
-              else{
-               signup.style.visibility = "collapse";
-              }
+      <input type="text" placeholder="enter your email here..." class="button-64" id="inputtext" onchange="emailchange()">
+      <button id="signup" class="guestbutton"><u>explore as guest</u></button>
+      <button id="signup" class="signupbutton" style="visibility:collapse;"><b>sign up</b></button>
+      <script>
+          let signup = document.getElementById("signup")
+          var emailchange = function() {
+            var scan = function(inputString) {
+              var pattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    
+              return inputString.match(pattern); 
             }
-            signup.addEventListener('click', function() {
-              window.location.assign("login-register.html");
-            });
-          let infobox = document.getElementById('infobox');
-          let centre = document.getElementById('centre');
-          window.addEventListener('scroll', () => {
-              let value = window.scrollY
-              infobox.style.top = -value/10 + 100 + '%';
-              centre.style.top = value/15 + 40 + '%';
+            var strings = scan(document.getElementById("inputtext").value);
+
+            if(strings && strings.length)
+            {
+              signup.style.visibility = "visible";
+            }
+            else{
+             signup.style.visibility = "collapse";
+            }
+          }
+          signup.addEventListener('click', function() {
+            window.location.assign("login-register.html");
           });
-        </script>
-        <br>
-        </div>
+        let infobox = document.getElementById('infobox');
+        let centre = document.getElementById('centre');
+        window.addEventListener('scroll', () => {
+            let value = window.scrollY
+            infobox.style.top = -value/10 + 100 + '%';
+            centre.style.top = value/15 + 40 + '%';
+        });
+      </script>
+      <br>
       </div>
+    </div>
+  <script type="text/javascript" src="/globe-vertex-texture/third-party/Three/ThreeWebGL.js"></script>
+  <script type="text/javascript" src="/globe-vertex-texture/third-party/Three/ThreeExtras.js"></script>
+  <script type="text/javascript" src="/globe-vertex-texture/third-party/Three/RequestAnimationFrame.js"></script>
+  <script type="text/javascript" src="/globe-vertex-texture/third-party/Three/Detector.js"></script>
+  <script type="text/javascript" src="/globe-vertex-texture/third-party/Tween.js"></script>
+  <script type="text/javascript" src="/globe-vertex-texture/globe.js"></script>
+  <script type="text/javascript" src="/globe-vertex-texture/shaders.js"></script>
+  <script type="text/javascript">
+      var container = document.getElementById('container');
+      var globe = new DAT.Globe(container);
+      globe.modelLoader();
+      TWEEN.start();
+  </script>
 </body>
 </html>
