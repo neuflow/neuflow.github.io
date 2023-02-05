@@ -17,14 +17,14 @@ DAT.Globe = function(container, colorFn) {
   var pointScale = 0.4;
   var pointExtrudeRange = [0.1,10];
 
-  gridModel = 'models/gridLand'+gridDensity+'.js';
-  var imgDir = './';
+  gridModel = 'globe-vertex-texture/models/gridLand'+gridDensity+'.js';
+  var imgDir = 'globe-vertex-texture/';
   var rotation = { x: 0, y: 0 };
   var distance = 100000, distanceTarget = 100000;
 
   function modelLoader() {
     loader = new THREE.JSONLoader();
-    loader.load({ model:"models/cube.js", callback: function(g) {
+    loader.load({ model:"globe-vertex-texture/models/cube.js", callback: function(g) {
       pointGeo = g;
       gridLoader()
     }});
@@ -216,12 +216,11 @@ DAT.Globe = function(container, colorFn) {
     renderer.render(scene, camera);
     renderer.render(sceneAtmosphere, camera);
   }
-
-  this.createPoints = createPoints;
-  this.renderer = renderer;
-  this.scene = scene;
   this.animate = animate;
   this.modelLoader = modelLoader;
+  this.renderer = renderer;
+  this.scene = scene;
+  /*this.createPoints;*/
 
   return this;
 
